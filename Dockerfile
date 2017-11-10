@@ -17,6 +17,4 @@ RUN ansible-playbook /playbook.yaml
 
 EXPOSE 21 80
 
-CMD /etc/init.d/vmcontext start; mount -t cvmfs elixir-italy.galaxy.refdata /refdata/elixir-italy.galaxy.refdata; /usr/local/bin/galaxy-startup
-
-CMD ["sleep infinity"]
+CMD /etc/init.d/vmcontext start; mount -t cvmfs elixir-italy.galaxy.refdata /refdata/elixir-italy.galaxy.refdata; /usr/local/bin/galaxy-startup; /usr/bin/sleep infinity
