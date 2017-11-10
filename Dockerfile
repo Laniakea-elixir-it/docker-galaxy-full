@@ -4,7 +4,6 @@ MAINTAINER ma.tangaro@ibiom.cnr.it
 
 ENV container docker
 
-#COPY ["playbook.yaml","entrypoint.sh","/"] # only for developemnt
 COPY ["playbook.yaml","/"]
 
 RUN ansible-galaxy install indigo-dc.cvmfs-client
@@ -17,7 +16,5 @@ RUN echo "localhost" > /etc/ansible/hosts
 RUN ansible-playbook /playbook.yaml
 
 EXPOSE 21 80
-
-#ENTRYPOINT ["/entrypoint.sh"] # only for development
 
 CMD /etc/init.d/vmcontext start; mount -t cvmfs elixir-italy.galaxy.refdata /refdata/elixir-italy.galaxy.refdata; /usr/local/bin/galaxy-startup

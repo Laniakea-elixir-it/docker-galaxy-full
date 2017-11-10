@@ -11,3 +11,15 @@
       refdata_cvmfs_repository_name: 'elixir-italy.galaxy.refdata'
       refdata_cvmfs_key_file: 'elixir-italy.galaxy.refdata.pub'
       refdata_cvmfs_proxy_url: 'DIRECT'
+  post_tasks:
+    - stat: path=/var/log/galaxy/uwsgi.pid
+      register: galaxy_pid
+    - supervisorctl:
+        name: '{{item}}'
+        state: stopped
+      with_items:
+        - 'postgresql'
+        - 'nginx'
+        - 'proftpd'
+        - 'galaxy:'
+      when: galaxy_pid.stat.exists
