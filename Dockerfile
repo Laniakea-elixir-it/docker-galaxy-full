@@ -21,4 +21,4 @@ EXPOSE 21 80
 
 CMD ["/etc/init.d/vmcontext start", "/usr/local/bin/galaxy-startup"]
 
-CMD ["/bin/bash"]
+CMD ["/usr/bin/sleep infinity"]
