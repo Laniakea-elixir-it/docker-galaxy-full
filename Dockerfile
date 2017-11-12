@@ -15,4 +15,5 @@ RUN echo "localhost" > /etc/ansible/hosts
 
 RUN ansible-playbook /playbook.yaml
 
-RUN /bin/mount -t cvmfs elixir-italy.galaxy.refdata /refdata/elixir-italy.galaxy.refdata
+# This overwrite docker-galaxycloud CMD line
+CMD /bin/mount -t cvmfs elixir-italy.galaxy.refdata /refdata/elixir-italy.galaxy.refdata; /usr/local/bin/galaxy-startup; /usr/bin/sleep infinity
