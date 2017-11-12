@@ -15,6 +15,4 @@ RUN echo "localhost" > /etc/ansible/hosts
 
 RUN ansible-playbook /playbook.yaml
 
-EXPOSE 21 80
-
-CMD ["/bin/mount","-t","cvmfs","elixir-italy.galaxy.refdata","/refdata/elixir-italy.galaxy.refdata"]
+RUN /bin/mount -t cvmfs elixir-italy.galaxy.refdata /refdata/elixir-italy.galaxy.refdata
