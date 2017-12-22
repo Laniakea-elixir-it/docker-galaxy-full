@@ -1,2 +1,4 @@
-# docker-galaxycloud-full
-Galaxy + reference data (cvmfs)
+docker-galaxycloud-full
+=======================
+
+Galaxy + reference data provided using CernVM-FS
