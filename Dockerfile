@@ -6,6 +6,7 @@ ENV container docker
 
 COPY ["playbook.yaml","/"]
 
+# Add script to install tools without ansible
 ADD install_tools.sh /usr/local/bin/install-tools
 
 RUN ansible-galaxy install indigo-dc.cvmfs-client
