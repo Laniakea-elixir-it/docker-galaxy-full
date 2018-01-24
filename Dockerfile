@@ -6,6 +6,8 @@ ENV container docker
 
 COPY ["playbook.yaml","/"]
 
+ADD install_tools.sh /usr/local/bin/install-tools
+
 RUN ansible-galaxy install indigo-dc.cvmfs-client
 RUN ansible-galaxy install indigo-dc.galaxycloud-refdata
 
