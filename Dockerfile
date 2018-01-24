@@ -8,6 +8,7 @@ COPY ["playbook.yaml","/"]
 
 # Add script to install tools without ansible
 ADD install_tools.sh /usr/local/bin/install-tools
+RUN chmod +x /usr/local/bin/install-tools
 
 RUN ansible-galaxy install indigo-dc.cvmfs-client
 RUN ansible-galaxy install indigo-dc.galaxycloud-refdata
