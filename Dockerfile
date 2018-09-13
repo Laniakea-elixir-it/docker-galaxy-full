@@ -1,4 +1,4 @@
-FROM laniakeacloud/galaxy:17.05
+FROM laniakeacloud/galaxy:18.05
 
 MAINTAINER ma.tangaro@ibiom.cnr.it
 
@@ -7,7 +7,7 @@ ENV container docker
 COPY ["playbook.yaml","/"]
 
 # Add script to install tools without ansible
-ADD https://raw.githubusercontent.com/Laniakea-elixir-it/Scripts/master/galaxy_tools/install_tools.docker.17.sh /usr/local/bin/install-tools
+ADD https://raw.githubusercontent.com/Laniakea-elixir-it/Scripts/master/galaxy_tools/install_tools.docker.sh /usr/local/bin/install-tools
 RUN chmod +x /usr/local/bin/install-tools
 
 RUN ansible-galaxy install indigo-dc.cvmfs-client
