@@ -19,11 +19,7 @@ ADD https://raw.githubusercontent.com/indigo-dc/Reference-data-galaxycloud-repos
 
 RUN echo "localhost" > /etc/ansible/hosts
 
-RUN ansible-playbook /playbook.yaml
-    -e 'refdata_provider_type=cvmfs_preconfigured
-        refdata_repository_name=data.galaxyproject.org
-        refdata_cvmfs_repository_name=data.galaxyproject.org
-       '
+RUN ansible-playbook /playbook.yaml -e 'refdata_provider_type=cvmfs_preconfigured refdata_repository_name=data.galaxyproject.org refdata_cvmfs_repository_name=data.galaxyproject.org'
 
 # This overwrite docker-galaxycloud CMD line
 CMD /bin/mount -t cvmfs $REFDATA_CVMFS_REPOSITORY_NAME /cvmfs/$REFDATA_CVMFS_REPOSITORY_NAME; /usr/local/bin/galaxy-startup; /usr/bin/sleep infinity
